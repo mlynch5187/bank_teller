@@ -26,9 +26,11 @@ class BankTest < Minitest::Test
     @chase.open_account(@luna)
 
     assert_equal 500, @luna.cash
+    assert_equal 0, @chase.reserves
 
     @luna.deposit(@chase, 100)
 
     assert_equal 400, @luna.cash
+    assert_equal 100, @chase.reserves
   end
 end
