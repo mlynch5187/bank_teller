@@ -21,4 +21,14 @@ class BankTest < Minitest::Test
     assert_equal [@luna], @chase.accounts
     assert_equal [@chase], @luna.banks
   end
+
+  def test_deposits
+    @chase.open_account(@luna)
+
+    assert_equal 500, @luna.cash
+
+    @luna.deposit(@chase, 100)
+
+    assert_equal 400, @luna.cash
+  end
 end
