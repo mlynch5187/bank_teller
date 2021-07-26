@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require "./person"
+require "./lib/person"
 
 class PersonTest < Minitest::Test
   def setup
