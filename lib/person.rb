@@ -5,4 +5,9 @@ class Person
     @cash = cash
     @banks = []
   end
+
+  def deposit(bank, amount)
+    bank.reserves += amount
+    @cash - amount
+  end
 end
