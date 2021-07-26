@@ -5,9 +5,11 @@ class Bank
     @accounts = []
   end
 
-  def open_account(person)
-    @accounts << person
+  def open_account(client)
+    @accounts << client
 
-    puts "An account has been opened for #{person}"
+    client.banks << self
+
+    puts "An account has been opened for #{client.name}"
   end
 end
