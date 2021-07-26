@@ -1,12 +1,23 @@
 require 'minitest/autorun'
 require "./lib/bank"
+require "./lib/person"
 
-class PersonTest < Minitest::Test
+class BankTest < Minitest::Test
   def setup
     @wells_fargo = Bank.new("Wells Fargo")
+    @chase = Bank.new("JP Morgan Chase")
+    @minerva = Person.new("Minerva", 1000)
+    @luna = Person.new("Luna", 500)
   end
 
   def test_it_exists
     assert_instance_of Bank, @wells_fargo
+    assert_instance_of Bank, @chase
+  end
+
+  def test_account_can_opened
+    @chase.open_account(@luna)
+
+    assert_equal [@luna], @chase.accounts
   end
 end
