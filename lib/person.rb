@@ -7,7 +7,7 @@ class Person
   end
 
   def deposit(bank, amount)
-    bank.reserves += amount
-    @cash - amount
+    bank.reserves + amount
+    @cash -= amount
   end
 end

@@ -1,8 +1,9 @@
 class Bank
-  attr_reader :name, :accounts
+  attr_reader :name, :accounts, :reserves
   def initialize(name)
     @name = name
     @accounts = []
+    @reserves = 0
   end
 
   def open_account(client)
