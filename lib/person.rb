@@ -13,10 +13,10 @@ class Person
     puts "#{self.name} has deposited amount into #{bank.name}"
   end
 
-  def balance(bank)
+  def balance
     balances = {}
-    bank.accounts[0].banks[0].accounts[0].banks.each do |place|
-      balances[bank.name] = place.reserves
+    self.banks[0].accounts[0].banks.each do |bank|
+       balances[bank.name] = bank.reserves
     end
     balances
   end
