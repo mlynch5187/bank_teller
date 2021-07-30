@@ -10,7 +10,7 @@ class Person
     bank.reserves += amount
     @cash -= amount
 
-    puts "#{self.name} has deposited amount into #{bank.name}"
+    puts "#{self.name} has deposited #{amount} into #{bank.name}"
   end
 
   def balance
