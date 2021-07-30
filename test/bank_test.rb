@@ -36,15 +36,18 @@ class BankTest < Minitest::Test
 
   def test_balance_can_be_retrieved
     @chase.open_account(@luna)
+    @wells_fargo.open_account(@luna)
 
     assert_equal 500, @luna.cash
     assert_equal 0, @chase.reserves
 
     @luna.deposit(@chase, 100)
+    @luna.deposit(@wells_fargo, 200)
 
-    assert_equal 400, @luna.cash
+    assert_equal 200, @luna.cash
     assert_equal 100, @chase.reserves
+    assert_equal 200, @wells_fargo.reserves
 
-    assert_equal "Luna has $100 in JP Morgan Chase", @luna.balances
+    assert_equal ({"JP Morgan Chase"=>200}), @luna.balance(@chase)
   end
 end
