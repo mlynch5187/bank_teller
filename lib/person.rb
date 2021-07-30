@@ -20,4 +20,7 @@ class Person
     end
     balances
   end
+
+  def withdrawal(bank, amount)
+  end
 end

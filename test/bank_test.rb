@@ -69,11 +69,11 @@ class BankTest < Minitest::Test
 
     assert_equal ({"JP Morgan Chase"=>100, "Wells Fargo"=>200}), @luna.balance
 
-    @luna.withdrawal(100, @wells_fargo)
+    @luna.withdrawal(@wells_fargo, 100)
 
     assert_equal ({"JP Morgan Chase"=>100, "Wells Fargo"=>100}), @luna.balance
 
-    @luna.withdrawal(100, @chase)
+    @luna.withdrawal(@chase, 100)
 
     assert_equal ({"JP Morgan Chase"=>0, "Wells Fargo"=>100}), @luna.balance
   end
