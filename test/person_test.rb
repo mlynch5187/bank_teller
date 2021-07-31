@@ -1,10 +1,10 @@
 require 'minitest/autorun'
-require "./lib/person"
+require './lib/person'
 
 class PersonTest < Minitest::Test
   def setup
-    @minerva = Person.new("Minerva", 1000)
-    @luna = Person.new("Luna", 500)
+    @minerva = Person.new('Minerva', 1000)
+    @luna = Person.new('Luna', 500)
   end
 
   def test_it_exists

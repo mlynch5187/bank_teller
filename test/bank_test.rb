@@ -1,13 +1,13 @@
 require 'minitest/autorun'
-require "./lib/bank"
-require "./lib/person"
+require './lib/bank'
+require './lib/person'
 
 class BankTest < Minitest::Test
   def setup
-    @wells_fargo = Bank.new("Wells Fargo")
-    @chase = Bank.new("JP Morgan Chase")
-    @minerva = Person.new("Minerva", 1000)
-    @luna = Person.new("Luna", 500)
+    @wells_fargo = Bank.new('Wells Fargo')
+    @chase = Bank.new('JP Morgan Chase')
+    @minerva = Person.new('Minerva', 1000)
+    @luna = Person.new('Luna', 500)
   end
 
   def test_it_exists
@@ -49,7 +49,7 @@ class BankTest < Minitest::Test
     assert_equal 100, @chase.reserves
     assert_equal 200, @wells_fargo.reserves
 
-    assert_equal ({"JP Morgan Chase"=>100, "Wells Fargo"=>200}), @luna.balance
+    assert_equal ({ 'JP Morgan Chase' => 100, 'Wells Fargo' => 200 }), @luna.balance
   end
 
   def test_withdrawals
@@ -67,14 +67,14 @@ class BankTest < Minitest::Test
     assert_equal 100, @chase.reserves
     assert_equal 200, @wells_fargo.reserves
 
-    assert_equal ({"JP Morgan Chase"=>100, "Wells Fargo"=>200}), @luna.balance
+    assert_equal ({ 'JP Morgan Chase' => 100, 'Wells Fargo' => 200 }), @luna.balance
 
     @luna.withdrawal(@wells_fargo, 100)
 
-    assert_equal ({"JP Morgan Chase"=>100, "Wells Fargo"=>100}), @luna.balance
+    assert_equal ({ 'JP Morgan Chase' => 100, 'Wells Fargo' => 100 }), @luna.balance
 
     @luna.withdrawal(@chase, 100)
 
-    assert_equal ({"JP Morgan Chase"=>0, "Wells Fargo"=>100}), @luna.balance
+    assert_equal ({ 'JP Morgan Chase' => 0, 'Wells Fargo' => 100 }), @luna.balance
   end
 end

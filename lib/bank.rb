@@ -1,6 +1,7 @@
 class Bank
   attr_reader :name, :accounts
   attr_accessor :reserves
+
   def initialize(name)
     @name = name
     @accounts = []
