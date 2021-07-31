@@ -12,7 +12,6 @@ class Person
   def deposit(bank, amount)
     bank.reserves += amount
     @cash -= amount
-
     puts "#{name} has deposited #{amount} into #{bank.name}"
   end
 

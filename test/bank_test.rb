@@ -77,4 +77,17 @@ class BankTest < Minitest::Test
 
     assert_equal ({ 'JP Morgan Chase' => 0, 'Wells Fargo' => 100 }), @luna.balance
   end
+
+  def test_take_loan
+    @chase.open_account(@luna)
+    @wells_fargo.open_account(@luna)
+    @luna.deposit(@chase, 500)
+
+    assert_equal 500, @chase.reserves
+
+    @luna.take_loan(@chase, 500)
+
+    assert_equal 1, @luna.active_loans
+    assert_equal 550, @luna.debt
+  end
 end
