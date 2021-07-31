@@ -18,7 +18,7 @@ class Person
 
   def balance
     balances = {}
-    banks[0].accounts[0].banks.each do |bank|
+    self.banks.each do |bank|
       balances[bank.name] = bank.reserves
     end
     balances
