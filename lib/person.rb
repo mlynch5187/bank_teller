@@ -24,5 +24,11 @@ class Person
     balances
   end
 
-  def withdrawal(bank, amount); end
+  def withdrawal(bank, amount)
+    self.banks.each do |place|
+      if place.name === bank.name
+      place.reserves -= amount
+      end
+    end
+  end
 end
